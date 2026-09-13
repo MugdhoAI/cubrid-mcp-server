@@ -1,0 +1,63 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.cubrid-lab/cubrid-mcp-server",
+  "title": "CUBRID MCP Server",
+  "description": "MCP server for executing SQL queries and managing CUBRID database operations with 12 read-only and opt-in write tools",
+  "version": "0.4.0",
+  "repository": {
+    "url": "https://github.com/cubrid-lab/cubrid-mcp-server",
+    "source": "github"
+  },
+  "packages": [
+    {
+      "registryType": "pypi",
+      "identifier": "cubrid-mcp-server",
+      "version": "0.4.0",
+      "registryBaseUrl": "https://pypi.org",
+      "transport": {
+        "type": "stdio"
+      },
+      "runtimeHint": "uvx",
+      "environmentVariables": [
+        {
+          "name": "CUBRID_HOST",
+          "description": "CUBRID database host address",
+          "isRequired": false,
+          "isSecret": false,
+          "default": "localhost"
+        },
+        {
+          "name": "CUBRID_PORT",
+          "description": "CUBRID database port number",
+          "isRequired": false,
+          "isSecret": false,
+          "default": "33000"
+        },
+        {
+          "name": "CUBRID_USER",
+          "description": "CUBRID database username",
+          "isRequired": false,
+          "isSecret": false
+        },
+        {
+          "name": "CUBRID_PASSWORD",
+          "description": "CUBRID database password",
+          "isRequired": false,
+          "isSecret": true
+        },
+        {
+          "name": "CUBRID_DATABASE",
+          "description": "CUBRID database name",
+          "isRequired": false,
+          "isSecret": false
+        }
+      ]
+    }
+  ],
+  "_meta": {
+    "io.modelcontextprotocol.registry/publisher-provided": {
+      "tool": "mcp-publisher",
+      "version": "1.0.0"
+    }
+  }
+}
