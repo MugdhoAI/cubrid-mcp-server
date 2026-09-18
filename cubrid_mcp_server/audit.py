@@ -71,7 +71,7 @@ def _category(sql: str | None) -> str | None:
     """
     if not sql:
         return None
-    match = _LEADING_WORD.match(sql.lstrip())
+    match = _LEADING_WORD.match(_strip_noise(sql).lstrip())
     return match.group(0).upper() if match else None
 
 
