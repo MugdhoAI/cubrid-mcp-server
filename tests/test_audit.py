@@ -90,6 +90,8 @@ def test_audit_log_enabled_via_env() -> None:
 def test_category_is_leading_keyword_only() -> None:
     assert _category("  select * from users") == "SELECT"
     assert _category("WITH t AS (SELECT 1) SELECT * FROM t") == "WITH"
+    assert _category("-- c\nSELECT * FROM users") == "SELECT"
+    assert _category("/* c */ SELECT * FROM users") == "SELECT"
     assert _category("") is None
     assert _category("123 select") is None
     assert _category(None) is None
